@@ -1,0 +1,11 @@
+#ses-id-main {
+  background: #333;
+  color: yellow;
+}
+
+#ses-id-main p {
+  margin: 10px;
+  background: black;
+  border-radius: 5px;
+  color: green;
+}
