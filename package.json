@@ -1,9 +1,9 @@
 {
-  "name": "{{id}}",
+  "name": "--id--",
   "version": "0.0.0",
   "description": "TODO: add description",
   "main": "./app/index.js",
-  "browser": "./client/{{id}}.js",
+  "browser": "./client/id.js",
   "browserify": {
     "transform": [
       "hbsfy"
@@ -14,15 +14,15 @@
     "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
     "test-pages": "tap app/pages/test",
     "test-api": "tap app/api/test",
-    "test-client": "zuul client/test/views/ --config ./zuul-test-config.js",
+    "test-client": "zuul client/test/{**,}/ --config ./zuul-test-config.js",
     "start-test": "zuul client/test/views/ --server 3002 --config ./zuul-test-config.js",
     "test": "npm run test-client && npm run test-pages && npm run test-api"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/thlorenz/{{id}}.git"
+    "url": "git://github.com/thlorenz/--id--.git"
   },
-  "homepage": "https://github.com/thlorenz/{{id}}",
+  "homepage": "https://github.com/thlorenz/--id--",
   "optionalDependencies": {},
   "dependencies": {
     "hbsfy": "~0.1.5",
@@ -50,7 +50,7 @@
   },
   "license": {
     "type": "MIT",
-    "url": "https://github.com/thlorenz/{{id}}/blob/master/LICENSE"
+    "url": "https://github.com/thlorenz/--id--/blob/master/LICENSE"
   },
   "engine": {
     "node": ">=0.6"
