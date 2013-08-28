@@ -14,7 +14,8 @@ exports.bundleOpts = core.bundleOpts;
 
 exports.initPages = function (pagesApp, express, apiServerInfo) {
   app.initPages(pagesApp, express, apiServerInfo);
-  pagesApp.use(core.renderViewMiddleware(viewPath, { title: 'see' }));
+  // rendering our own index page is only necessary when we are run standalone which is why this is set up here
+  pagesApp.use(core.renderViewMiddleware(viewPath, { title: 'TODO: title in ./appup-dev-config.js' }));
 };
 
 exports.postInitPages = app.postInitPages;
