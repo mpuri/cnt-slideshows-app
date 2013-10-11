@@ -17,7 +17,7 @@ test('properly sets up sample data route', function (t) {
 
   server.once('listening', function () {
     http
-      .request({ port: 3111, path: '/ses-id/sample' })
+      .request({ port: 3111, path: '/ses-cntslideshows/sample' })
       .once('response', function (res) {
         t.equal(res.statusCode, 200, '200 response');
         t.ok(res.headers['content-length'] > 0, 'with content');

@@ -1,20 +1,20 @@
-#ses-id-main {
+#ses-cntslideshows-main {
   background: #333;
   color: yellow;
 }
 
-#ses-id-main p {
+#ses-cntslideshows-main p {
   margin: 10px;
   padding: 10px;
   background: black;
   border-radius: 5px;
   color: green;
 }
-#ses-id-main a {
+#ses-cntslideshows-main a {
   color: green;
 }
 
-#ses-id-main li {
+#ses-cntslideshows-main li {
   color: green;
   margin: 10px;
   padding: 10px;

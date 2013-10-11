@@ -18,7 +18,7 @@ test('properly sets up express app when initialized', function (t) {
 
     http
         // TODO: change prefix to match your feature name
-      .request({ port: 3111, path: '/ses-id-css/index.css' })
+      .request({ port: 3111, path: '/ses-cntslideshows-css/index.css' })
       .once('response', function (res) {
         t.equal(res.statusCode, 200, '200 response');
         t.ok(res.headers['content-length'] > 0, 'with content');

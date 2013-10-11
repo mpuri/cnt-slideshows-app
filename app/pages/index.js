@@ -11,7 +11,7 @@ exports.init = function (app, express) {
   core.registerEndpoints(__dirname, 'routes', app, express);
 
   // TODO: change prefix to match your feature name
-  core.registerPartials(dirs.partials, 'ses-id-');
+  core.registerPartials(dirs.partials, 'ses-cntslideshows-');
 };
 
 exports.postInit = function (app, server, express) { /* noop for now */ };
