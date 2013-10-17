@@ -1,13 +1,19 @@
-<div id="ses-cntslideshows-main" 
-  <h2>TODO: title in templates/partials/main.hbs</h2>
+<h1>Cond&eacute; Nast Traveler Demo of Swipe.js 2.0</h1>
 
-  <p>This content is loaded from ./templates/partials/main.hbs via ./templates/index.hbs</p>
-  <p>Edit all partials in ./templates/partials to not only change this content, but also scripts that are loaded.</p>
-  <p>Most importantly you should change all 'id' names like 'ses-id-main' to match the name of your feature</p>
-  <p>Do the same for all files and routes that contain the 'id' placeholder. Rename and edit them to match your feature name.</p>
-
-  <ul>
-    <li><a href="/routes">Pages Routes</a></li>
-    <li><a href="https://github.com/thlorenz/ses-barebones/blob/master/README.md">Readme</a></li>
-  </ul>
+<div style='text-align:center; padding-top:20px;'>
+  <button onclick='cntslider.prev();'>Prev</button>
+  <button onclick='cntslider.next();'>Next</button>
 </div>
+
+<section class="slideshow-container row twelve colgrid">
+  <canvas id="previewPaneLeft" class="image-preview-pane two columns"></canvas>
+  <div id='cntslider' style='max-width: 1000px;' class='swipe eight columns'>
+    <div class='swipe-wrap'>
+      <img gumby-supports gumby-default="/ses-cntslideshows-images/demo1.jpg" gumby-media="only screen and (min-width: 768px)|/ses-cntslideshows-images/demo1x568px.jpg,only screen and (max-width: 768px)|/ses-cntslideshows-images/demo1x768px.jpg">
+      <img gumby-media="only screen and (min-width: 768px)|/ses-cntslideshows-images/demo2.jpg,only screen and (max-width: 768px)|/ses-cntslideshows-images/demo2.jpg" alt="">
+      <img gumby-media="only screen and (min-width: 768px)|/ses-cntslideshows-images/demo3.jpg,only screen and (max-width: 768px)|/ses-cntslideshows-images/demo3.jpg" alt="">
+      <img gumby-media="only screen and (min-width: 768px)|/ses-cntslideshows-images/demo4.jpg,only screen and (max-width: 768px)|/ses-cntslideshows-images/demo4.jpg" alt="">
+    </div>
+  </div>
+  <canvas id="previewPaneRight" class="image-preview-pane two columns"></canvas>
+</section>

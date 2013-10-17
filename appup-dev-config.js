@@ -6,7 +6,7 @@ var dirs = require('./config/directories');
 
 var app = require('./app');
 
-var viewPath = path.join(dirs.templates, 'cntslideshows.hbs');
+var viewPath = path.join(dirs.templates, 'cntslideshows-index.hbs');
 
 // The core browserify instance exposes jquery, backbone and underscore
 exports.initBrowserify = core.initBrowserify;
