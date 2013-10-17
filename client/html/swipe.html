@@ -77,6 +77,46 @@
   <canvas id="previewPaneRight" class="image-preview-pane two columns"></canvas>
 </section>
 <script>
+// function slideChange(idx, elem) {
+//   console.log('Index: ' + idx);
+// }
+
+// function initSwipeJS() {
+//   window.cntslider = $('#cntslider').Swipe({
+//     continuous: false,
+//     callback: slideChange
+//   }).data('Swipe');
+// }
+
+// var paneLeft = document.getElementById('previewPaneLeft');
+// var paneRight = document.getElementById('previewPaneRight');
+
+// function loadPreviewPane(pane, img) {
+//   var whichPane = (pane === 'left') ? paneLeft : paneRight;
+//   var context = whichPane.getContext('2d');
+
+//   whichPane.width = 100;
+//   whichPane.height = img.height;
+//   context.globalAlpha = 0.3;
+//   context.drawImage(img, 0, 0, img.width, img.height);
+// }
+
+// $(document).ready(function () {
+//   loadPreviewPane('left', $('.swipe-wrap img').get(3));
+//   loadPreviewPane('right', $('.swipe-wrap img').get(1));
+
+//   $('.swipe-wrap img').on('gumby.onChange', function(e) {
+//     console.log('img responsive');
+//   }).trigger('gumby.trigger').trigger('gumby.initialize');
+
+//   initSwipeJS();
+// });
+</script>
+
+<script>
+var paneLeft = document.getElementById('previewPaneLeft');
+var paneRight = document.getElementById('previewPaneRight');
+
 function slideChange(idx, elem) {
   console.log('Index: ' + idx);
 }
@@ -88,9 +128,6 @@ function initSwipeJS() {
   }).data('Swipe');
 }
 
-var paneLeft = document.getElementById('previewPaneLeft');
-var paneRight = document.getElementById('previewPaneRight');
-
 function loadPreviewPane(pane, img) {
   var whichPane = (pane === 'left') ? paneLeft : paneRight;
   var context = whichPane.getContext('2d');
@@ -101,16 +138,22 @@ function loadPreviewPane(pane, img) {
   context.drawImage(img, 0, 0, img.width, img.height);
 }
 
-$(document).ready(function () {
-  loadPreviewPane('left', $('.swipe-wrap img').get(3));
-  loadPreviewPane('right', $('.swipe-wrap img').get(1));
+$(document).on('DOMContentLoaded', function () {
+  var gumbyLoadedImages = 0,
+      slideshowImageLength = $('.swipe-wrap img').length;
 
   $('.swipe-wrap img').on('gumby.onChange', function(e) {
-    console.log('img responsive');
-  }).trigger('gumby.trigger').trigger('gumby.initialize');
+    gumbyLoadedImages = gumbyLoadedImages + 1;
 
-  initSwipeJS();
+    if (gumbyLoadedImages === slideshowImageLength) {
+      console.log('all images loaded');
+      loadPreviewPane('left', $('.swipe-wrap img').get(3));
+      loadPreviewPane('right', $('.swipe-wrap img').get(1));
+      initSwipeJS();
+    }
+  }).trigger('gumby.trigger').trigger('gumby.initialize');
 });
+
 </script>
 
 </body>
