@@ -3,6 +3,11 @@
 function trimItem(item) {
   item.photoId = void 0;
 
+  // normalize API
+  // slideshow considers the text sent to as description to be the caption
+  item.caption = item.description;
+  item.description = void 0;
+
   var photo = item.photo;
   if (!photo) return;
 

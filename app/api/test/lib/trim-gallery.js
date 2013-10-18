@@ -19,7 +19,8 @@ test('when trimming a gallery provided by cnt-services', function (t) {
       tags: [],
       items:
       [ { isActive: true,
-          description: '# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below',
+          caption: '# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below',
+          description: undefined,
           photoId: undefined,
           photo:
             { id: undefined,
@@ -33,7 +34,8 @@ test('when trimming a gallery provided by cnt-services', function (t) {
               modifiedAt: undefined,
               name: 'blob' } },
         { isActive: true,
-          description: '# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below',
+          caption: '# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below',
+          description: undefined,
           photoId: undefined,
           photo:
             { id: undefined,
@@ -47,7 +49,8 @@ test('when trimming a gallery provided by cnt-services', function (t) {
               modifiedAt: undefined,
               name: 'blob' } },
         { isActive: true,
-          description: '# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below',
+          caption: '# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below',
+          description: undefined,
           photoId: undefined,
           photo:
             { id: undefined,
@@ -61,7 +64,8 @@ test('when trimming a gallery provided by cnt-services', function (t) {
               modifiedAt: undefined,
               name: 'blob' } },
         { isActive: true,
-          description: '# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below',
+          caption: '# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below',
+          description: undefined,
           photoId: undefined,
           photo:
             { id: undefined,
@@ -75,7 +79,8 @@ test('when trimming a gallery provided by cnt-services', function (t) {
               modifiedAt: undefined,
               name: 'blob' } },
         { isActive: true,
-          description: '# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below',
+          caption: '# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below',
+          description: undefined,
           photoId: undefined,
           photo:
             { id: undefined,
