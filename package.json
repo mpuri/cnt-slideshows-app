@@ -28,7 +28,8 @@
     "hbsfy": "~0.1.5",
     "ses-core": "git://github.com/thlorenz/ses-core",
     "underscore": "~1.5.1",
-    "backbone": "~1.0.0"
+    "backbone": "~1.0.0",
+    "marked": "~0.2.9"
   },
   "devDependencies": {
     "nodemon": "~0.7.8",
