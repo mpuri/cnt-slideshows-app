@@ -37,9 +37,20 @@
   position: relative;
 }
 
+#cntslider {
+  width: 78%;
+}
+
 #cntslider,
 .image-preview-pane {
   float: left;
+}
+
+#cntslider,
+#previewPaneLeft,
+#previewPaneRight {
+  max-height: 750px;
+  overflow: hidden;
 }
 
 #previewPaneLeft {
@@ -54,6 +65,7 @@
 <script>
 // mock image data
 var mockJSON = {
+  "startSlide": "0",
   "photos": [
     { "defaultURL":"/ses-cntslideshows-images/demo1.jpg" },
     { "defaultURL":"/ses-cntslideshows-images/demo2.jpg" },
@@ -71,12 +83,11 @@ var mockJSON = {
 </div>
 
 <section class="slideshow-container row twelve colgrid">
-  <canvas id="previewPaneLeft" class="image-preview-pane two columns"></canvas>
+  <div id="previewPaneLeft" class="image-preview-pane two columns"></div>
   <div id='cntslider' style='max-width: 1000px;' class='swipe eight columns'>
-    <div class='swipe-wrap'>
-    </div>
+    <div class='swipe-wrap'></div>
   </div>
-  <canvas id="previewPaneRight" class="image-preview-pane two columns"></canvas>
+  <div id="previewPaneRight" class="image-preview-pane two columns"></div>
 </section>
 <script>
 var paneLeft = document.getElementById('previewPaneLeft');
@@ -107,24 +118,56 @@ function createGumbyMediaAttribute(img) {
 }
 
 function slideChange(idx, elem) {
-  console.log('Index: ' + idx);
+  var lastSlide = $('.swipe-wrap img').length - 1;
+  // console.log('slide -> ' + idx);
+
+  switch (idx) {
+    case 0:
+      clearPreviewPane('left');
+      loadPreviewPane('right', $('.swipe-wrap img').get(idx + 1));
+    break;
+
+    case lastSlide:
+      clearPreviewPane('right');
+      loadPreviewPane('left', $('.swipe-wrap img').get(idx - 1));
+    break;
+
+    default:
+      loadPreviewPane('left', $('.swipe-wrap img').get(idx - 1));
+      loadPreviewPane('right', $('.swipe-wrap img').get(idx + 1));
+    break;
+  }
 }
 
-function initSwipeJS() {
+function initSwipeJS(startSlide) {
+  var firstSlide = parseInt(mockJSON.startSlide, 10);
   window.cntslider = $('#cntslider').Swipe({
     continuous: false,
+    startSlide: startSlide,
     callback: slideChange
   }).data('Swipe');
+
+  if (firstSlide === 0) {
+    loadPreviewPane('right', $('.swipe-wrap img').get(1));
+  }
 }
 
 function loadPreviewPane(pane, img) {
-  var whichPane = (pane === 'left') ? paneLeft : paneRight;
-  var context = whichPane.getContext('2d');
+  var whichPane = (pane === 'left') ? 'previewPaneLeft' : 'previewPaneRight';
+  var context = document.getElementById(whichPane);
 
-  whichPane.width = 100;
-  whichPane.height = 750;
-  context.globalAlpha = 0.3;
-  context.drawImage(img, 0, 0, img.width, img.height);
+  context.style.width = '8%';
+  context.style.height = img.height + 'px';
+  context.style.backgroundImage = 'url("' + img.src + '")';
+}
+
+function clearPreviewPane(pane) {
+  var whichPane = (pane === 'left') ? 'previewPaneLeft' : 'previewPaneRight';
+  var context = document.getElementById(whichPane);
+
+  context.style.width = '0';
+  context.style.height = '0';
+  context.style.backgroundImage = 'none !important';
 }
 
 // create images from JSON and append to swipe.js container
@@ -154,8 +197,6 @@ function postImageLoad() {
 
     if (gumbyLoadedImages === slideshowImageLength) {
       console.log('all images loaded');
-      loadPreviewPane('left', $('.swipe-wrap img').get(3));
-      loadPreviewPane('right', $('.swipe-wrap img').get(1));
       initSwipeJS();
     }
   }).trigger('gumby.trigger').trigger('gumby.initialize');
