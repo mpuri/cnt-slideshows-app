@@ -40,7 +40,8 @@
     "zuul": "~0.2.0",
     "restify": "~2.6.0",
     "concat-stream": "~1.0.0",
-    "appup": "0.0.7"
+    "appup": "0.0.7",
+    "tape": "~2.0.0"
   },
   "keywords": [],
   "author": {
