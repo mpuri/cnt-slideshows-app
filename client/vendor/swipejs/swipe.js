@@ -56,15 +56,18 @@ function Swipe(container, options) {
     // determine width of each slide
     width = container.getBoundingClientRect().width || container.offsetWidth;
 
-    element.style.width = (slides.length * width) + 'px';
+    // element.style.width = (slides.length * width) + 'px';
+    element.style.width = (slides.length * 100) + '%'; //Use percentages for the swipe container
 
     // stack elements
     var pos = slides.length;
+    var slidePercentage = (100 / pos) + '%'; //Use percentages for the swipe container
     while(pos--) {
 
       var slide = slides[pos];
 
-      slide.style.width = width + 'px';
+      // slide.style.width = width + 'px';
+      slide.style.width = slidePercentage; //Use percentages for the swipe container
       slide.setAttribute('data-index', pos);
 
       if (browser.transitions) {
