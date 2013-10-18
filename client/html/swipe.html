@@ -11,10 +11,13 @@
 
 <link href="/ses-cntslideshows-vendor/gumby/css/gumby.css">
 <script src="/ses-cntslideshows-vendor/gumby/js/libs/modernizr-2.6.2.min.js"></script>
-<script src="/ses-cntslideshows-vendor/gumby/js/libs/gumby.min.js" gumby-debug></script>
-<script src="/ses-cntslideshows-vendor/gumby/js/libs/ui/gumby.images.js" gumby-debug></script>
+
+<!-- Prevent auto-initialization of Gumby modules by setting gumby-init to false -->
+<script src="/ses-cntslideshows-vendor/gumby/js/libs/gumby.js" gumby-init="false"></script>
+<script src="/ses-cntslideshows-vendor/gumby/js/libs/ui/gumby.images.js"></script>
 <script src="/ses-cntslideshows-vendor/gumby/js/plugins.js"></script>
 <script src="/ses-cntslideshows-vendor/gumby/js/main.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
 <style>
 /* Swipe 2 required styles */
 .swipe {
@@ -52,10 +55,10 @@
 // mock image data
 var mockJSON = {
   "photos": [
-    { "default-url":"/ses-cntslideshows-images/demo1.jpg" },
-    { "default-url":"/ses-cntslideshows-images/demo2.jpg" },
-    { "default-url":"/ses-cntslideshows-images/demo3.jpg" },
-    { "default-url":"/ses-cntslideshows-images/demo4.jpg" }
+    { "defaultURL":"/ses-cntslideshows-images/demo1.jpg" },
+    { "defaultURL":"/ses-cntslideshows-images/demo2.jpg" },
+    { "defaultURL":"/ses-cntslideshows-images/demo3.jpg" },
+    { "defaultURL":"/ses-cntslideshows-images/demo4.jpg" }
   ]
 };
 </script>
@@ -71,10 +74,6 @@ var mockJSON = {
   <canvas id="previewPaneLeft" class="image-preview-pane two columns"></canvas>
   <div id='cntslider' style='max-width: 1000px;' class='swipe eight columns'>
     <div class='swipe-wrap'>
-      <img gumby-media="only screen and (max-width: 320px)|/ses-cntslideshows-images/demo1-320.jpg, only screen and (max-width: 568px)|/ses-cntslideshows-images/demo1-568.jpg, only screen and (max-width: 768px)|/ses-cntslideshows-images/demo1-768.jpg, only screen and (min-width: 768px)|/ses-cntslideshows-images/demo1-1000.jpg" gumby-default="/ses-cntslideshows-images/demo1.jpg">
-      <img gumby-media="only screen and (max-width: 320px)|/ses-cntslideshows-images/demo2-320.jpg, only screen and (max-width: 568px)|/ses-cntslideshows-images/demo2-568.jpg, only screen and (max-width: 768px)|/ses-cntslideshows-images/demo2-768.jpg, only screen and (min-width: 768px)|/ses-cntslideshows-images/demo2-1000.jpg" gumby-default="/ses-cntslideshows-images/demo2.jpg">
-      <img gumby-media="only screen and (max-width: 320px)|/ses-cntslideshows-images/demo3-320.jpg, only screen and (max-width: 568px)|/ses-cntslideshows-images/demo3-568.jpg, only screen and (max-width: 768px)|/ses-cntslideshows-images/demo3-768.jpg, only screen and (min-width: 768px)|/ses-cntslideshows-images/demo3-1000.jpg" gumby-default="/ses-cntslideshows-images/demo3.jpg">
-      <img gumby-media="only screen and (max-width: 320px)|/ses-cntslideshows-images/demo4-320.jpg, only screen and (max-width: 568px)|/ses-cntslideshows-images/demo4-568.jpg, only screen and (max-width: 768px)|/ses-cntslideshows-images/demo4-768.jpg, only screen and (min-width: 768px)|/ses-cntslideshows-images/demo4-1000.jpg" gumby-default="/ses-cntslideshows-images/demo4.jpg">
     </div>
   </div>
   <canvas id="previewPaneRight" class="image-preview-pane two columns"></canvas>
@@ -82,14 +81,29 @@ var mockJSON = {
 <script>
 var paneLeft = document.getElementById('previewPaneLeft');
 var paneRight = document.getElementById('previewPaneRight');
+var conventions = {
+  thumb: '-320',
+  phablet: '-568',
+  tablet: '-768',
+  desktop: '-1000'
+};
 
-function createGumbyMediaAttributes(img) {
+function createGumbyMediaAttribute(img) {
+  var mediaQuery;
   var fileSeparatorIndex = img.lastIndexOf('.');
-  var fileName = img.substring(0, (fileSeparatorIndex-1));
+  var fileName = img.substring(0, (fileSeparatorIndex));
   var fileExtension = img.substring(fileSeparatorIndex, img.length);
 
-  console.log('Filename -> ' + fileName);
-  console.log('File extension -> ' + fileExtension);
+  mediaQuery  = 'only screen and (max-width: 320px)|' + fileName + conventions.thumb + fileExtension + ', ';
+  mediaQuery += 'only screen and (max-width: 568px)|' + fileName + conventions.phablet + fileExtension + ', ';
+  mediaQuery += 'only screen and (max-width: 768px)|' + fileName + conventions.tablet + fileExtension + ', ';
+  mediaQuery += 'only screen and (min-width: 768px)|' + fileName + conventions.desktop + fileExtension;
+
+  // console.log('Filename -> ' + fileName);
+  // console.log('File extension -> ' + fileExtension);
+  // console.log('Media query -> ' + mediaQuery);
+
+  return mediaQuery;
 }
 
 function slideChange(idx, elem) {
@@ -113,7 +127,25 @@ function loadPreviewPane(pane, img) {
   context.drawImage(img, 0, 0, img.width, img.height);
 }
 
-$(document).on('DOMContentLoaded', function () {
+// create images from JSON and append to swipe.js container
+function loadImagesFromJSON() {
+  var newImage;
+  var container = $('.swipe-wrap').get(0);
+  var temp = document.createDocumentFragment();
+
+  _.each(mockJSON.photos, function(photo) {
+    newImage = document.createElement('img');
+    newImage.setAttribute('gumby-default', photo.defaultURL);
+    newImage.setAttribute('gumby-media', createGumbyMediaAttribute(photo.defaultURL));
+    temp.appendChild(newImage);
+  });
+
+  container.appendChild(temp);
+
+  postImageLoad();
+}
+
+function postImageLoad() {
   var gumbyLoadedImages = 0,
       slideshowImageLength = $('.swipe-wrap img').length;
 
@@ -127,11 +159,15 @@ $(document).on('DOMContentLoaded', function () {
       initSwipeJS();
     }
   }).trigger('gumby.trigger').trigger('gumby.initialize');
+}
 
-  createGumbyMediaAttributes(mockJSON.photos[0].default-url);
+$(document).on('DOMContentLoaded', function () {
+  loadImagesFromJSON();
+
+  // Manual init of the Gumby Responsive Image Plugin (GRIP)
+  Gumby.init({uiModules: ['images']}); 
 });
 
 </script>
-
 </body>
 </html>
