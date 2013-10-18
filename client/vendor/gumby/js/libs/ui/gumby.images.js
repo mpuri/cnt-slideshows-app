@@ -165,6 +165,7 @@
 			// this element has already been initialized
 			// and we need to reinitialize it
 			} else if($this.data('isImage') && all) {
+			// } else if($this.data('isImage')) {
 				$this.trigger('gumby.initialize');
 				return true;
 			}
