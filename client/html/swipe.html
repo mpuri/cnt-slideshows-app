@@ -4,9 +4,9 @@
 <title>Cond&eacute; Nast Traveler Slideshow Swipe2.js demo</title>
 <meta http-equiv="X-UA-Compatible" content="IE=8">
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/ses-cntslideshows-vendor/gumby/js/libs/jquery-1.10.1.min.js"></script>
 
-<link href='/ses-cntslideshows-vendor/swipejs/swipe.css'>
+<!-- <link href='/ses-cntslideshows-vendor/swipejs/swipe.css'> -->
 <script src='/ses-cntslideshows-vendor/swipejs/swipe.js'></script>
 
 <link href="/ses-cntslideshows-vendor/gumby/css/gumby.css">
@@ -17,7 +17,7 @@
 <script src="/ses-cntslideshows-vendor/gumby/js/libs/ui/gumby.images.js"></script>
 <script src="/ses-cntslideshows-vendor/gumby/js/plugins.js"></script>
 <script src="/ses-cntslideshows-vendor/gumby/js/main.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+<script src="/ses-cntslideshows-vendor/underscore-min.js"></script>
 <style>
 /* Swipe 2 required styles */
 .swipe {
@@ -47,18 +47,63 @@
 }
 
 #cntslider,
-#previewPaneLeft,
-#previewPaneRight {
+#preview-pane-prev,
+#preview-pane-next {
   max-height: 750px;
   overflow: hidden;
 }
 
-#previewPaneLeft {
+#preview-pane-prev,
+#preview-pane-next {
+  opacity: 0.3;
+}
+
+#preview-pane-prev:hover,
+#preview-pane-next:hover {
+  opacity: 0.8;
+}
+
+#preview-pane-prev {
   margin-right: 10px;
 }
 
-#previewPaneRight {
+#preview-pane-next {
   margin-left: 10px;
+}
+
+.img-hover-pane {
+  height: 100%;
+  width: 35%;
+  position: absolute;
+  top: 0;
+}
+
+.img-hover-pane.prev {
+  left: 0;
+}
+
+.img-hover-pane.next {
+  right: 0;
+}
+
+.arrow-container.prev {
+  background-image: url("/ses-cntslideshows-images/slideshow_arrow_left.png");
+  background-repeat: no-repeat;
+  /*background-attachment: fixed;*/
+  background-position: center;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-container.next {
+  background-image: url("/ses-cntslideshows-images/slideshow_arrow_right.png");
+  background-repeat: no-repeat;
+  /*background-attachment: fixed;*/
+  background-position: center;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
 }
 /* END required styles */
 </style>
@@ -77,21 +122,18 @@ var mockJSON = {
 </head>
 <body>
 
-<div style='text-align:center; padding-top:20px;'>
-  <button onclick='cntslider.prev();'>Prev</button>
-  <button onclick='cntslider.next();'>Next</button>
-</div>
-
 <section class="slideshow-container row twelve colgrid">
-  <div id="previewPaneLeft" class="image-preview-pane two columns"></div>
+  <div id="preview-pane-prev" class="image-preview-pane two columns">
+    <div class="arrow-container prev"></div>
+  </div>
   <div id='cntslider' style='max-width: 1000px;' class='swipe eight columns'>
     <div class='swipe-wrap'></div>
   </div>
-  <div id="previewPaneRight" class="image-preview-pane two columns"></div>
+  <div id="preview-pane-next" class="image-preview-pane two columns">
+    <div class="arrow-container next"></div>
+  </div>
 </section>
 <script>
-var paneLeft = document.getElementById('previewPaneLeft');
-var paneRight = document.getElementById('previewPaneRight');
 var conventions = {
   thumb: '-320',
   phablet: '-568',
@@ -139,8 +181,13 @@ function slideChange(idx, elem) {
   }
 }
 
+function showNextSlide(direction) {
+  cntslider[direction]();
+}
+
 function initSwipeJS(startSlide) {
   var firstSlide = parseInt(mockJSON.startSlide, 10);
+
   window.cntslider = $('#cntslider').Swipe({
     continuous: false,
     startSlide: startSlide,
@@ -153,7 +200,7 @@ function initSwipeJS(startSlide) {
 }
 
 function loadPreviewPane(pane, img) {
-  var whichPane = (pane === 'left') ? 'previewPaneLeft' : 'previewPaneRight';
+  var whichPane = (pane === 'left') ? 'preview-pane-prev' : 'preview-pane-next';
   var context = document.getElementById(whichPane);
 
   context.style.width = '8%';
@@ -162,7 +209,7 @@ function loadPreviewPane(pane, img) {
 }
 
 function clearPreviewPane(pane) {
-  var whichPane = (pane === 'left') ? 'previewPaneLeft' : 'previewPaneRight';
+  var whichPane = (pane === 'left') ? 'preview-pane-prev' : 'preview-pane-next';
   var context = document.getElementById(whichPane);
 
   context.style.width = '0';
@@ -202,11 +249,61 @@ function postImageLoad() {
   }).trigger('gumby.trigger').trigger('gumby.initialize');
 }
 
+function loadHoverPanes() {
+  var prevHoverPane = $('<div/>').addClass('img-hover-pane prev').get(0);
+  var nextHoverPane = $('<div/>').addClass('img-hover-pane next').get(0);
+  var temp = document.createDocumentFragment();
+  temp.appendChild(prevHoverPane);
+  temp.appendChild(nextHoverPane);
+
+  $('#cntslider').append(temp);
+}
+
+function onSlideshowClick(e) {
+  var $target = $(e.target);
+
+  if ($target.hasClass('arrow-container')) {
+    showNextSlide($target.get(0).className.split(' ')[1]);
+  }
+}
+
+function onSlideshowHover(e) {
+  var $target = $(e.target);
+
+  if ($target.hasClass('img-hover-pane')) {
+    handlePaneHovering($target, true);
+  }
+}
+
+function onSlideshowLeave(e) {
+  var $target = $(e.target);
+
+  if ($target.hasClass('img-hover-pane')) {
+    handlePaneHovering($target, false);
+  }
+}
+
+function handlePaneHovering ($target, hovering) {
+  var classList = $target.get(0).className;
+  var direction = (classList.match(/ next/gi)) ? 'next' : 'prev';
+
+  if (hovering) {
+    $('#preview-pane-' + direction).css('opacity', '0.8');
+  } else {
+    $('#preview-pane-' + direction).css('opacity', '0.3');
+  }
+  
+}
+
 $(document).on('DOMContentLoaded', function () {
   loadImagesFromJSON();
+  loadHoverPanes();
 
-  // Manual init of the Gumby Responsive Image Plugin (GRIP)
-  Gumby.init({uiModules: ['images']}); 
+  // Manual init of the Gumby Responsive Image Module (GRIM)
+  Gumby.init({uiModules: ['images']});
+
+  $('.slideshow-container').on('click', onSlideshowClick);
+  $('#cntslider').on('mouseover', onSlideshowHover).on('mouseout', onSlideshowLeave);
 });
 
 </script>
