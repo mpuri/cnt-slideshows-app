@@ -1,0 +1,325 @@
+{
+  "byline": [],
+  "tags": [],
+  "items": [
+    {
+      "isActive": true,
+      "description": "# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below",
+      "photoId": "525ed1d0ae35f11d4b000048",
+      "photo": {
+        "id": "525ed1d0ae35f11d4b000048",
+        "createdAt": "2013-10-16T17:50:08.644Z",
+        "images": {
+          "original": {
+            "url": "https://us-east.manta.joyent.com/condenast/public/gq/ci/2013/10/16/1381945808654_blob",
+            "height": 1024,
+            "width": 768,
+            "format": "JPEG"
+          }
+        },
+        "modifiedAt": "2013-10-16T17:50:09.828Z",
+        "name": "blob"
+      }
+    },
+    {
+      "isActive": true,
+      "description": "# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below",
+      "photoId": "525ed1d0ae35f11d4b000049",
+      "photo": {
+        "id": "525ed1d0ae35f11d4b000049",
+        "createdAt": "2013-10-16T17:50:08.649Z",
+        "images": {
+          "original": {
+            "url": "https://us-east.manta.joyent.com/condenast/public/gq/ci/2013/10/16/1381945808664_blob",
+            "height": 648,
+            "width": 474,
+            "format": "JPEG"
+          }
+        },
+        "modifiedAt": "2013-10-16T17:50:09.805Z",
+        "name": "blob"
+      }
+    },
+    {
+      "isActive": true,
+      "description": "# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below",
+      "photoId": "525ed1d0ae35f11d4b00004b",
+      "photo": {
+        "id": "525ed1d0ae35f11d4b00004b",
+        "createdAt": "2013-10-16T17:50:08.678Z",
+        "images": {
+          "original": {
+            "url": "https://us-east.manta.joyent.com/condenast/public/gq/ci/2013/10/16/1381945808701_blob",
+            "height": 360,
+            "width": 282,
+            "format": "JPEG"
+          }
+        },
+        "modifiedAt": "2013-10-16T17:50:09.166Z",
+        "name": "blob"
+      }
+    },
+    {
+      "isActive": true,
+      "description": "# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below",
+      "photoId": "525ed1d0ae35f11d4b00004a",
+      "photo": {
+        "id": "525ed1d0ae35f11d4b00004a",
+        "createdAt": "2013-10-16T17:50:08.653Z",
+        "images": {
+          "original": {
+            "url": "https://us-east.manta.joyent.com/condenast/public/gq/ci/2013/10/16/1381945808679_blob",
+            "height": 700,
+            "width": 467,
+            "format": "JPEG"
+          }
+        },
+        "modifiedAt": "2013-10-16T17:50:09.424Z",
+        "name": "blob"
+      }
+    },
+    {
+      "isActive": true,
+      "description": "# women\n - are females\n  - like clothes\n\nTherefore we put this nice photo below",
+      "photoId": "525ed1d0ae35f11d4b00004c",
+      "photo": {
+        "id": "525ed1d0ae35f11d4b00004c",
+        "createdAt": "2013-10-16T17:50:08.698Z",
+        "images": {
+          "original": {
+            "url": "https://us-east.manta.joyent.com/condenast/public/gq/ci/2013/10/16/1381945808709_blob",
+            "height": 680,
+            "width": 519,
+            "format": "JPEG"
+          }
+        },
+        "modifiedAt": "2013-10-16T17:50:09.748Z",
+        "name": "blob"
+      }
+    }
+  ],
+  "photos": {
+    "social": {
+      "photoId": "525ed1d1ae35f11d4b00004d",
+      "photo": {
+        "id": "525ed1d1ae35f11d4b00004d",
+        "createdAt": "2013-10-16T17:50:09.902Z",
+        "images": {
+          "original": {
+            "url": "https://us-east.manta.joyent.com/condenast/public/gq/ci/2013/10/16/1381945809909_JonSantana.jpg",
+            "height": 700,
+            "width": 467,
+            "format": "JPEG"
+          }
+        },
+        "modifiedAt": "2013-10-16T17:50:10.546Z",
+        "name": "JonSantana"
+      }
+    },
+    "search": {
+      "photoId": "525ed1d1ae35f11d4b00004e",
+      "photo": {
+        "id": "525ed1d1ae35f11d4b00004e",
+        "createdAt": "2013-10-16T17:50:09.908Z",
+        "images": {
+          "original": {
+            "url": "https://us-east.manta.joyent.com/condenast/public/gq/ci/2013/10/16/1381945809919_high-fashion-model-white-gown.jpg",
+            "height": 648,
+            "width": 439,
+            "format": "JPEG"
+          }
+        },
+        "modifiedAt": "2013-10-16T17:50:10.548Z",
+        "name": "high-fashion-model-white-gown"
+      }
+    }
+  },
+  "channel": "Women",
+  "subChannel": "Photos",
+  "displayDate": "12/01/13",
+  "createdAt": "2013-10-16T17:47:09.716Z",
+  "hed": "Test Gallery hed",
+  "dek": "Test gallery dek",
+  "seoDescription": "Test seo descriptino",
+  "id": "525ed18f199cb91d4bbac469",
+  "revision": 44,
+  "revisionCreatedAt": "2013-10-16T20:59:07.685Z",
+  "publishHistory": [
+    {
+      "createdAt": "2013-10-16T20:59:15.136Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T20:59:10.014Z",
+      "revision": 44,
+      "uri": "women/photos/photo/test-slug"
+    },
+    {
+      "createdAt": "2013-10-16T19:54:44.167Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:54:41.393Z",
+      "revision": 42,
+      "uri": "women/photos/photo/test-slug"
+    },
+    {
+      "createdAt": "2013-10-16T19:54:01.310Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:54:01.240Z",
+      "revision": 41,
+      "uri": "women/photos/photo/test-slug"
+    },
+    {
+      "createdAt": "2013-10-16T19:52:39.031Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:52:35.788Z",
+      "revision": 40,
+      "uri": "women/photos/photo/test-slug"
+    },
+    {
+      "createdAt": "2013-10-16T19:42:00.555Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:41:54.401Z",
+      "revision": 37,
+      "uri": "women/photos/photo/test-slug"
+    },
+    {
+      "createdAt": "2013-10-16T19:40:37.796Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:40:18.268Z",
+      "revision": 36,
+      "uri": "women/photos/photo/test-slug"
+    },
+    {
+      "createdAt": "2013-10-16T19:34:08.056Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:33:32.864Z",
+      "revision": 33,
+      "uri": "women/photos/photo//test-slug"
+    },
+    {
+      "createdAt": "2013-10-16T19:30:52.223Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:30:27.103Z",
+      "revision": 32,
+      "uri": "women-photos/test-slug"
+    },
+    {
+      "createdAt": "2013-10-16T19:29:54.724Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:29:18.459Z",
+      "revision": 31,
+      "uri": "women-photos/test-slug"
+    },
+    {
+      "createdAt": "2013-10-16T19:27:57.277Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:27:56.174Z",
+      "revision": 30,
+      "uri": "women-photos/women-photos/test-slug"
+    },
+    {
+      "createdAt": "2013-10-16T19:26:45.323Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:26:15.596Z",
+      "revision": 28,
+      "uri": "women-photos/test-slug"
+    },
+    {
+      "createdAt": "2013-10-16T19:18:08.611Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:18:09.226Z",
+      "revision": 26,
+      "uri": "undefined/women/photos/photo/women/photosphoto/cars-gear-gear-and-gadgetscars-gear/12-01-13/test-gallery-hed"
+    },
+    {
+      "createdAt": "2013-10-16T19:05:43.856Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T19:05:42.574Z",
+      "revision": 24,
+      "uri": "women/photos/photo/women/photosphoto/cars-gear-gear-and-gadgetscars-gear/12-01-13/test-gallery-hed"
+    },
+    {
+      "createdAt": "2013-10-16T18:57:51.400Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T18:57:43.795Z",
+      "revision": 21,
+      "uri": "women/photos/photo/women/photosphoto/cars-gear-gear-and-gadgetscars-gear/12-01-13/test-gallery-hed"
+    },
+    {
+      "createdAt": "2013-10-16T18:54:27.821Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T18:54:09.111Z",
+      "revision": 20,
+      "uri": "women/photos/photo/women/photosphoto/cars-gear-gear-and-gadgetscars-gear/12-01-13/test-gallery-hed"
+    },
+    {
+      "createdAt": "2013-10-16T18:52:05.641Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T18:51:54.663Z",
+      "revision": 19,
+      "uri": "women/photos/photo/women/photosphoto/cars-gear-gear-and-gadgetscars-gear/12-01-13/test-gallery-hed"
+    },
+    {
+      "createdAt": "2013-10-16T18:48:50.255Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T18:48:43.256Z",
+      "revision": 18,
+      "uri": "women/photos/photo/women/photosphoto/cars-gear-gear-and-gadgetscars-gear/12-01-13/test-gallery-hed"
+    },
+    {
+      "createdAt": "2013-10-16T18:48:12.894Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T18:48:12.014Z",
+      "revision": 17,
+      "uri": "women/photosphoto/cars-gear-gear-and-gadgetscars-gear/12-01-13/test-gallery-hed"
+    },
+    {
+      "createdAt": "2013-10-16T18:47:00.565Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T18:47:00.553Z",
+      "revision": 16,
+      "uri": "women/photosphoto/cars-gear-gear-and-gadgetscars-gear/12-01-13/test-gallery-hed"
+    },
+    {
+      "createdAt": "2013-10-16T18:42:57.404Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T18:42:49.603Z",
+      "revision": 15,
+      "uri": "women/photosphoto/cars-gear-gear-and-gadgetscars-gear/12-01-13/test-gallery-hed"
+    },
+    {
+      "createdAt": "2013-10-16T17:51:13.979Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T17:51:09.117Z",
+      "revision": 4,
+      "uri": "cars-gear-gear-and-gadgetscars-gear/12-01-13/test-gallery-hed"
+    },
+    {
+      "createdAt": "2013-10-16T19:13:58.305Z",
+      "entityId": "525ed18f199cb91d4bbac469",
+      "expired": false,
+      "pubDate": "2013-10-16T04:00:00.000Z",
+      "revision": 25,
+      "uri": "women/photos/photo/women/photosphoto/cars-gear-gear-and-gadgetscars-gear/12-01-13/test-gallery-hed"
+    }
+  ]
+}
